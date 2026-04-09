@@ -31,6 +31,9 @@ if __name__ == "__main__":
     file = open(sys.argv[1], "rw")
     old_text: str = file.read()
 
+    new_text: str = ""
     old_lines: list[str] = old_text.split('\n')
     for old_line in old_lines:
+        new_line = old_line + "#\n"
+        new_text += new_line
         
