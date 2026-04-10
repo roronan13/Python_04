@@ -28,7 +28,7 @@ if __name__ == "__main__":
     file.close()
     print(f"File '{sys.argv[1]}' closed.")
 
-    file = open(sys.argv[1], "rw")
+    file = open(sys.argv[1], "r")
     old_text: str = file.read()
 
     new_text: str = ""
@@ -36,4 +36,5 @@ if __name__ == "__main__":
     for old_line in old_lines:
         new_line = old_line + "#\n"
         new_text += new_line
-        
+    
+    print(new_text)
