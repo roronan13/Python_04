@@ -1,7 +1,7 @@
 #!usr/bin/env python3
 
 def secure_archive(file_name: str, mode: str = "r",
-                   content: str = None) -> tuple[bool, str]:
+                   content: str = "") -> tuple[bool, str]:
 
     if mode == "r":
         try:
@@ -13,12 +13,13 @@ def secure_archive(file_name: str, mode: str = "r",
     elif mode == "w":
         try:
             with open(file_name, "w") as file:
-                if content is None:
-                    content = ""
                 file.write(content)
                 return (True, content)
         except (FileNotFoundError, PermissionError, Exception) as e:
             return (False, str(e))
+
+    else:
+        return (False, "Invalid mode for opening file (second parameter)\n")
 
 
 if __name__ == "__main__":
